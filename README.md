@@ -1,93 +1,42 @@
 # WebApi
+Microsoft ASP.NET Core çerçeveleri üzerinde API geliştirmenizi sağlamak üzere tasarlanmıştır.
 
+Uygulama Programlama Arayüzü (API)'ler, tümleşik (entegre) web uygulamalarını dağıtmak ve ölçmek için bir dizi kayıtlı ve protokollerden oluşan bir uygulama programlama arayüzüdür. API sizin ürün ya da servisinizin, uygulama ayrıntıları ve teknoloji tercihlerinden bağımsız olarak başka ürün ya da servislere ile iletişim kurma olanaklarını tanır. Bu bileşen uygulama geliştirmeyi hızlandırır, zamandan ve maliyetten tasarruf sağlar. Yeni proje ya da iyileştirmeler girildiğinde API'lar ile çalışmak boyut esnekliğini sağlar; Tasarımı, yönetimi ve kullanımı basitleştirir ve yenlikler için fırsatlar oluşturur. API'lar geliştiricilerin yeni uygulama geliştirmeleri, mevcut mimarilere entegrasyon sürecini kolaylaştırması için BT ekiplerinin işbirliği yapmasına olanak sağlar. Bu kimlik ile birlikte HTTP tabanlı modern uygulamaların yaygınlaştırılması amacıyla API'lar oldukça yaygın bir şekilde kullanılır.
 
+## ASP.NET CORE Web Api
 
-## Getting started
+* Projenin mimarisi
+* EF Core implementasyonu
+* Kimlik denetiminin etkinleştirilmesi
+* JWT etkinleştirilmesi
+* Swagger kullanımı
+* Postman Kullanımı
+* Modellerin tanımlanması
+* DbContext & Migrations
+* Servislerin oluşturulması ve DI
+* Controller tanımlaması
+* Postman ile CRUD işlemler
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+## Proje Özellikleri
+Bu proje şablonu aşağıdaki özellikleri içerir
+- **Clean Architecture**:Proje, kaygıların ayrılmasını ve sorumlulukların net bir şekilde paylaşılmasını destekleyen [Temiz Mimari](https://binarybytez.com/understanding-clean-architecture/) ilkelerine göre yapılandırılmıştır.
+- **SOLID Design Principles**:Kod, [SOLID ilkelerine](https://binarybytez.com/mastering-solid-design-principles/) (Tek Sorumluluk, Açık-Kapalı, Liskov Değiştirme, Arayüz Ayrımı ve Bağımlılığı Tersine Çevirme) bağlı kalarak bakımını kolaylaştırır ve uzatın.
+- **Repository Pattern**: [Depo modeli](https://binarybytez.com/understanding-clean-architecture/) veri erişim katmanını soyutlar ve verilerle çalışmak için tutarlı bir arayüz sağlar.
+- **Unit of Work Pattern**:İş modeli birimi, işlemlerin yönetilmesine yardımcı olur ve birden çok depo ile çalışırken tutarlılık sağlar.
+- **Entity Framework Core**: Proje, veri erişimi için ORM (Nesne-İlişkisel Haritalama) aracı olarak Entity Framework Core'u kullanıyor.
+- **ASP.NET Core API**: Proje bir [ASP.NET Core API projesi] (https://binarybytes.com/clean-structured-project /) HTTP isteklerini ve yanıtlarını işleyen API katmanı görevi görür.
+- **JWT for Token-based Authentication**:Bu son teknoloji token tabanlı yaklaşımla kullanıcı oturumlarını, kimlik doğrulamasını ve yetkilendirmeyi zahmetsizce yönetin.
+- **API Versioning**: Proje, geriye dönük uyumluluğu korurken evrimsel değişiklikleri desteklemek için API sürümünü benimsiyor.
+- **CRUD Operations**: Proje şablonu, Entity Framework Core'u kullanan varlıklar üzerinde eksiksiz CRUD (Oluşturma, Okuma, Güncelleme, Silme) işlemlerinin uygulanması için bir temel sağlar.
+- **Dependency Injection**: Proje, yerleşik [bağımlılık enjeksiyonu] (https://binarybytes.com/understanding-dependency-injection) konteyner içinde ASP.NET Core, uygulama boyunca bağımlılıkları yönetmeyi ve enjekte etmeyi kolaylaştırır.
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+## Kullanım
+[Proje şablonu](https://binarybytes.com/asp-net-core-web-api-project /) kullanarak RESTful API'ler oluşturmak için bir başlangıç noktası sağlar ASP.NET Core. Mevcut kodu, özel uygulama gereksinimlerinize uyacak şekilde değiştirebilir ve genişletebilirsiniz. RESTful API'leri oluşturmada yer alan temel bileşenlere genel bir bakış:
 
-## Add your files
+1. **Models**: 'Entities' proje, CRUD işlemlerini gerçekleştirmek istediğiniz varlıkları temsil eden etki alanı modellerini içerir. Modelleri alan adınıza göre güncelleyin veya yenilerini ekleyin.
+2. **Repositories**: 'Repositories' projesi, Entity Framework Core'u kullanarak veri erişim işlemlerini işleyen depo uygulamalarını içerir. Varlık modellerinize ve veritabanı yapınıza uyacak şekilde depoları değiştirin veya yenilerini oluşturun.
+3. **Services**: 'Services' proje, iş mantığını içine alan ve depolardaki işlemleri düzenleyen hizmetler içerir. Varlıklarınızdaki CRUD işlemlerini yürütmek için yeni hizmetleri güncelleyin veya oluşturun.
+4. **Controllers**: 'Presentation
+' projesi, HTTP isteklerini ve yanıtlarını işleyen denetleyiciler içerir. Varlıklarınızın KABA uç noktalarını ortaya çıkarmak için yeni denetleyicileri güncelleyin veya oluşturun. Uygun HTTP yöntemlerini (GET, POST, PUT, DELETE) uygulayın ve temel hizmetler üzerinde buna göre eylemler gerçekleştirin.
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
-
-```
-cd existing_repo
-git remote add origin https://gitlab.com/eypacr/webapi.git
-git branch -M main
-git push -uf origin main
-```
-
-## Integrate with your tools
-
-- [ ] [Set up project integrations](https://gitlab.com/eypacr/webapi/-/settings/integrations)
-
-## Collaborate with your team
-
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
-
-## Test and Deploy
-
-Use the built-in continuous integration in GitLab.
-
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
-
-***
-
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+Uygulama gereksinimlerinizle uyumlu olacak şekilde rotaları, doğrulamayı ve hata işleme mantığını güncellediğinizden emin olun ve [best practices](https://binarybytez.com/performance-optimization-and-monitoring-in-asp-net-core/).
